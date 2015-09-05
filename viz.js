@@ -7,15 +7,19 @@ var analyser = audioCtx.createAnalyser();
 audioSrc.connect(analyser);
 audioSrc.connect(audioCtx.destination);
 
-var songs,currSongIndex;
+var songs=[],currSongIndex=-1;
 var sound = document.getElementById('sound');
 var reader = new FileReader();
 
 function init(){
-	songs = document.getElementById('audio');
-	console.log(songs.files);
-	currSongIndex=0;
-	console.log(songs.files.length);
+	var newSongs = document.getElementById('audio');
+	for(var i=0;i<newSongs.files.length;++i){
+		console.log(newSongs.files[i]);
+		songs.push(newSongs.files[i]);
+	}
+	console.log(songs);
+	currSongIndex++;
+	console.log(songs.length);
 	reader.onload = function(e){
 		console.log("load "+currSongIndex);
 		sound.src = e.target.result;
@@ -65,8 +69,8 @@ function play(){
 
 function playFile() { 
 	console.log("read "+currSongIndex);
-	d3.select("#songName").text(songs.files[currSongIndex].name);
-    reader.readAsDataURL(songs.files[currSongIndex]);
+	d3.select("#songName").text(songs[currSongIndex].name);
+    reader.readAsDataURL(songs[currSongIndex]);
     play();
 }
 
