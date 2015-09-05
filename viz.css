@@ -1,0 +1,74 @@
+html,body{
+    height: 100%;  
+}
+
+#audioBar,#buttonBar{
+    height: 8%;
+    padding: 0;
+    margin: 0;
+}
+
+#audioBar{ 
+    display: table;
+    margin: 0 auto;
+    width: 30%;
+}
+
+audio{
+    width: 100%;
+    margin: 5px auto;
+}
+
+marquee{
+    width: 100%;
+    margin: 0 auto;
+}
+
+#canvas{
+    height: 80%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+svg{
+    height: 100%;
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    background-color:grey !important;
+    border-color: grey !important; 
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+}
+
+button:focus{
+    outline:0 !important;
+}
+
+#change{
+    color: black !important;
+}
+
+#buttonBar{ 
+    display: table;
+    margin: 0 auto;
+}
+
+
+

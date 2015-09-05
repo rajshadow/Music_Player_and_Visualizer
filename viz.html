@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="d3.min.js"></script>
+	<link rel="stylesheet" href="viz.css">
+	<link rel="stylesheet" href="bootstrap-3.3.5-dist\css\bootstrap.css">
+	
+</head>
+<body onresize="resizeSvg()">
+<div id="audioBar">	
+	<audio id="sound" controls crossorigin="anonymous" onended="nextSong()"></audio>
+	<marquee id="songName"></marquee>
+</div>
+<div id="buttonBar">
+	<div class="audioButtons">
+		<span class="btn btn-default btn-file">
+			Select song(s)<input type="file" class="btn btn-primary" id="audio" onchange="init()" multiple>
+		</span>
+	    <button type="button" class="btn btn-default btn-lg button-skip-backward" onclick="prevSong()">
+	      <span class="glyphicon glyphicon-fast-backward"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-pause" onclick="pause()">
+	      <span class="glyphicon glyphicon-pause"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-stop" onclick="stop()">
+	      <span class="glyphicon glyphicon-stop"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-play" onclick="play()">
+	      <span class="glyphicon glyphicon-play"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-skip-forward" onclick="nextSong()">
+	      <span class="glyphicon glyphicon-fast-forward"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-tint" onclick="changeColor()">
+	      <span class="glyphicon glyphicon-tint"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-adjust" onclick="nightMode()">
+	      <span class="glyphicon glyphicon-adjust"></span>
+	    </button>
+	    <button id="change" value="change viz" onclick="changeViz()" class="btn btn-primary">Change</button>
+	</div>
+</div>
+<div id="canvas"></div>
+<script src="viz.js"></script>
+</body>
+</html>
