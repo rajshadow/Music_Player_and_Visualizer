@@ -46,9 +46,6 @@ svg{
     position: absolute;
     top: 0;
     right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
     text-align: right;
     filter: alpha(opacity=0);
     opacity: 0;
@@ -70,5 +67,14 @@ button:focus{
     margin: 0 auto;
 }
 
+#repeatButton{
+    opacity: 0.5;
+}
 
+.cont,#tab{
+    float:right;
+}
 
+table, td, th {
+    border: 1px solid green;
+}
