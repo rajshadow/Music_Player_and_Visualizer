@@ -1,20 +1,23 @@
+
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8"/>
 	<script src="d3.min.js"></script>
-	<link rel="stylesheet" href="viz.css">
-	<link rel="stylesheet" href="bootstrap-3.3.5-dist\css\bootstrap.css">
-	
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.5-dist/css/bootstrap.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
 </head>
 <body onresize="resizeSvg()">
 <div id="audioBar">	
-	<audio id="sound" controls crossorigin="anonymous" onended="nextSong()"></audio>
+	<audio id="sound" controls crossorigin="anonymous" onended="nextSong()" autoplay="true">
+	</audio>
 	<marquee id="songName"></marquee>
 </div>
 <div id="buttonBar">
 	<div class="audioButtons">
 		<span class="btn btn-default btn-file">
-			Select song(s)<input type="file" class="btn btn-primary" id="audio" onchange="init()" multiple>
+			Select song(s)<input type="file" class="btn btn-primary" id="audio" onchange="init()"  accept="audio/*" multiple>
 		</span>
 	    <button type="button" class="btn btn-default btn-lg button-skip-backward" onclick="prevSong()">
 	      <span class="glyphicon glyphicon-fast-backward"></span>
@@ -37,10 +40,26 @@
 	    <button type="button" class="btn btn-default btn-lg button-adjust" onclick="nightMode()">
 	      <span class="glyphicon glyphicon-adjust"></span>
 	    </button>
-	    <button id="change" value="change viz" onclick="changeViz()" class="btn btn-primary">Change</button>
+	    <button type="button" class="btn btn-default btn-lg button-signal" onclick="changeViz()">
+	      <span class="glyphicon glyphicon-signal"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-repeat" id="repeatButton" onclick="toggleRepeat()">
+	      <span class="glyphicon glyphicon-repeat"></span>
+	    </button>
+	    <button type="button" class="btn btn-default btn-lg button-list" id="playlist" data-toggle="collapse" data-target="#tab">
+	    	<span class="glyphicon glyphicon-list"></span>
+		</button>
 	</div>
 </div>
-<div id="canvas"></div>
+<div class="cont collapse in" id="tab">
+<table width=200px>
+ 	<tbody />
+</table>
+</div>
+<div class="cont">
+	<svg></svg>
+</div>
+<link rel="stylesheet" type="text/css" href="viz.css">
 <script src="viz.js"></script>
 </body>
 </html>
